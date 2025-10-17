@@ -1,0 +1,2183 @@
+{
+  "tables": [
+    {
+      "tableName": "clinics",
+      "columns": [
+        {
+          "name": "clinic_id",
+          "type": "INTEGER PRIMARY KEY AUTOINCREMENT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(255)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "address",
+          "type": "VARCHAR(255)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "type": "VARCHAR(20)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "email",
+          "type": "VARCHAR(100)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "owner_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        }
+      ],
+      "relationships": [],
+      "description": "",
+      "meta": {}
+    },
+    {
+      "tableName": "users",
+      "columns": [
+        {
+          "name": "user_id",
+          "type": "INTEGER PRIMARY KEY AUTOINCREMENT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "clinic_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "role",
+          "type": "VARCHAR(50)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(100)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "email",
+          "type": "VARCHAR(100)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "type": "VARCHAR(20)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "password_hash",
+          "type": "VARCHAR(255)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "is_active",
+          "type": "BOOLEAN",
+          "constraints": [],
+          "description": ""
+        }
+      ],
+      "relationships": [],
+      "description": "",
+      "meta": {}
+    },
+    {
+      "tableName": "patients",
+      "columns": [
+        {
+          "name": "patient_id",
+          "type": "INTEGER PRIMARY KEY AUTOINCREMENT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "clinic_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "name",
+          "type": "VARCHAR(100)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "dob",
+          "type": "DATE",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "gender",
+          "type": "VARCHAR(10)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "phone",
+          "type": "VARCHAR(20)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "email",
+          "type": "VARCHAR(100)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "address",
+          "type": "VARCHAR(255)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "allergies",
+          "type": "TEXT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "notes",
+          "type": "TEXT",
+          "constraints": [],
+          "description": ""
+        }
+      ],
+      "relationships": [],
+      "description": "",
+      "meta": {}
+    },
+    {
+      "tableName": "appointments",
+      "columns": [
+        {
+          "name": "appointment_id",
+          "type": "INTEGER PRIMARY KEY AUTOINCREMENT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "clinic_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "patient_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "doctor_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "scheduled_time",
+          "type": "DATETIME",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(50)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "queue_token",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "is_online",
+          "type": "BOOLEAN",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "constraints": [],
+          "description": ""
+        }
+      ],
+      "relationships": [],
+      "description": "",
+      "meta": {}
+    },
+    {
+      "tableName": "visit_notes",
+      "columns": [
+        {
+          "name": "note_id",
+          "type": "INTEGER PRIMARY KEY AUTOINCREMENT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "appointment_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "doctor_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "patient_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "visit_date",
+          "type": "DATE",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "notes",
+          "type": "TEXT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "vitals",
+          "type": "TEXT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "lab_reports",
+          "type": "TEXT",
+          "constraints": [],
+          "description": ""
+        }
+      ],
+      "relationships": [],
+      "description": "",
+      "meta": {}
+    },
+    {
+      "tableName": "prescriptions",
+      "columns": [
+        {
+          "name": "prescription_id",
+          "type": "INTEGER PRIMARY KEY AUTOINCREMENT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "appointment_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "doctor_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "patient_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "date_issued",
+          "type": "DATE",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "content",
+          "type": "TEXT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "language",
+          "type": "VARCHAR(50)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "shared_via",
+          "type": "VARCHAR(50)",
+          "constraints": [],
+          "description": ""
+        }
+      ],
+      "relationships": [],
+      "description": "",
+      "meta": {}
+    },
+    {
+      "tableName": "bills",
+      "columns": [
+        {
+          "name": "bill_id",
+          "type": "INTEGER PRIMARY KEY AUTOINCREMENT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "appointment_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "patient_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "clinic_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "amount",
+          "type": "DECIMAL(10,2)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "discount",
+          "type": "DECIMAL(10,2)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "payment_method",
+          "type": "VARCHAR(50)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(50)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "constraints": [],
+          "description": ""
+        }
+      ],
+      "relationships": [],
+      "description": "",
+      "meta": {}
+    },
+    {
+      "tableName": "payments",
+      "columns": [
+        {
+          "name": "payment_id",
+          "type": "INTEGER PRIMARY KEY AUTOINCREMENT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "bill_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "amount_paid",
+          "type": "DECIMAL(10,2)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "payment_date",
+          "type": "DATETIME",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "payment_mode",
+          "type": "VARCHAR(50)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "transaction_id",
+          "type": "VARCHAR(100)",
+          "constraints": [],
+          "description": ""
+        }
+      ],
+      "relationships": [],
+      "description": "",
+      "meta": {}
+    },
+    {
+      "tableName": "reminders",
+      "columns": [
+        {
+          "name": "reminder_id",
+          "type": "INTEGER PRIMARY KEY AUTOINCREMENT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "patient_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "appointment_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "type",
+          "type": "VARCHAR(50)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "message",
+          "type": "TEXT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "scheduled_time",
+          "type": "DATETIME",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "sent_via",
+          "type": "VARCHAR(50)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(50)",
+          "constraints": [],
+          "description": ""
+        }
+      ],
+      "relationships": [],
+      "description": "",
+      "meta": {}
+    },
+    {
+      "tableName": "feedback",
+      "columns": [
+        {
+          "name": "feedback_id",
+          "type": "INTEGER PRIMARY KEY AUTOINCREMENT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "patient_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "appointment_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "doctor_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "rating",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "comments",
+          "type": "TEXT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "constraints": [],
+          "description": ""
+        }
+      ],
+      "relationships": [],
+      "description": "",
+      "meta": {}
+    },
+    {
+      "tableName": "reports",
+      "columns": [
+        {
+          "name": "report_id",
+          "type": "INTEGER PRIMARY KEY AUTOINCREMENT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "clinic_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "type",
+          "type": "VARCHAR(50)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "period_start",
+          "type": "DATE",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "period_end",
+          "type": "DATE",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "data",
+          "type": "TEXT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "generated_at",
+          "type": "DATETIME",
+          "constraints": [],
+          "description": ""
+        }
+      ],
+      "relationships": [],
+      "description": "",
+      "meta": {}
+    },
+    {
+      "tableName": "teleconsultations",
+      "columns": [
+        {
+          "name": "teleconsultation_id",
+          "type": "INTEGER PRIMARY KEY AUTOINCREMENT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "appointment_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "doctor_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "patient_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "video_link",
+          "type": "VARCHAR(255)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(50)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "started_at",
+          "type": "DATETIME",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "ended_at",
+          "type": "DATETIME",
+          "constraints": [],
+          "description": ""
+        }
+      ],
+      "relationships": [],
+      "description": "",
+      "meta": {}
+    },
+    {
+      "tableName": "ai_features",
+      "columns": [
+        {
+          "name": "ai_feature_id",
+          "type": "INTEGER PRIMARY KEY AUTOINCREMENT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "appointment_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "feature_type",
+          "type": "VARCHAR(50)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "result",
+          "type": "TEXT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "created_at",
+          "type": "DATETIME",
+          "constraints": [],
+          "description": ""
+        }
+      ],
+      "relationships": [],
+      "description": "",
+      "meta": {}
+    },
+    {
+      "tableName": "subscriptions",
+      "columns": [
+        {
+          "name": "subscription_id",
+          "type": "INTEGER PRIMARY KEY AUTOINCREMENT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "clinic_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "plan",
+          "type": "VARCHAR(50)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "start_date",
+          "type": "DATE",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "end_date",
+          "type": "DATE",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(50)",
+          "constraints": [],
+          "description": ""
+        }
+      ],
+      "relationships": [],
+      "description": "",
+      "meta": {}
+    },
+    {
+      "tableName": "pharmacy_integration",
+      "columns": [
+        {
+          "name": "integration_id",
+          "type": "INTEGER PRIMARY KEY AUTOINCREMENT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "clinic_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "pharmacy_name",
+          "type": "VARCHAR(100)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "api_key",
+          "type": "VARCHAR(255)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(50)",
+          "constraints": [],
+          "description": ""
+        }
+      ],
+      "relationships": [],
+      "description": "",
+      "meta": {}
+    },
+    {
+      "tableName": "lab_integration",
+      "columns": [
+        {
+          "name": "integration_id",
+          "type": "INTEGER PRIMARY KEY AUTOINCREMENT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "clinic_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "lab_name",
+          "type": "VARCHAR(100)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "api_key",
+          "type": "VARCHAR(255)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(50)",
+          "constraints": [],
+          "description": ""
+        }
+      ],
+      "relationships": [],
+      "description": "",
+      "meta": {}
+    },
+    {
+      "tableName": "ads",
+      "columns": [
+        {
+          "name": "ad_id",
+          "type": "INTEGER PRIMARY KEY AUTOINCREMENT",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "clinic_id",
+          "type": "INTEGER",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "sponsor",
+          "type": "VARCHAR(100)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "banner_url",
+          "type": "VARCHAR(255)",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "start_date",
+          "type": "DATE",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "end_date",
+          "type": "DATE",
+          "constraints": [],
+          "description": ""
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(50)",
+          "constraints": [],
+          "description": ""
+        }
+      ],
+      "relationships": [],
+      "description": "",
+      "meta": {}
+    }
+  ],
+  "tree": {
+    "nodes": [
+      {
+        "id": "table:clinics",
+        "label": "clinics",
+        "type": "table"
+      },
+      {
+        "id": "column:clinics.clinic_id",
+        "label": "clinic_id : INTEGER PRIMARY KEY AUTOINCREMENT",
+        "type": "column"
+      },
+      {
+        "id": "column:clinics.name",
+        "label": "name : VARCHAR(255)",
+        "type": "column"
+      },
+      {
+        "id": "column:clinics.address",
+        "label": "address : VARCHAR(255)",
+        "type": "column"
+      },
+      {
+        "id": "column:clinics.phone",
+        "label": "phone : VARCHAR(20)",
+        "type": "column"
+      },
+      {
+        "id": "column:clinics.email",
+        "label": "email : VARCHAR(100)",
+        "type": "column"
+      },
+      {
+        "id": "column:clinics.owner_id",
+        "label": "owner_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "table:users",
+        "label": "users",
+        "type": "table"
+      },
+      {
+        "id": "column:users.user_id",
+        "label": "user_id : INTEGER PRIMARY KEY AUTOINCREMENT",
+        "type": "column"
+      },
+      {
+        "id": "column:users.clinic_id",
+        "label": "clinic_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:users.role",
+        "label": "role : VARCHAR(50)",
+        "type": "column"
+      },
+      {
+        "id": "column:users.name",
+        "label": "name : VARCHAR(100)",
+        "type": "column"
+      },
+      {
+        "id": "column:users.email",
+        "label": "email : VARCHAR(100)",
+        "type": "column"
+      },
+      {
+        "id": "column:users.phone",
+        "label": "phone : VARCHAR(20)",
+        "type": "column"
+      },
+      {
+        "id": "column:users.password_hash",
+        "label": "password_hash : VARCHAR(255)",
+        "type": "column"
+      },
+      {
+        "id": "column:users.is_active",
+        "label": "is_active : BOOLEAN",
+        "type": "column"
+      },
+      {
+        "id": "table:patients",
+        "label": "patients",
+        "type": "table"
+      },
+      {
+        "id": "column:patients.patient_id",
+        "label": "patient_id : INTEGER PRIMARY KEY AUTOINCREMENT",
+        "type": "column"
+      },
+      {
+        "id": "column:patients.clinic_id",
+        "label": "clinic_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:patients.name",
+        "label": "name : VARCHAR(100)",
+        "type": "column"
+      },
+      {
+        "id": "column:patients.dob",
+        "label": "dob : DATE",
+        "type": "column"
+      },
+      {
+        "id": "column:patients.gender",
+        "label": "gender : VARCHAR(10)",
+        "type": "column"
+      },
+      {
+        "id": "column:patients.phone",
+        "label": "phone : VARCHAR(20)",
+        "type": "column"
+      },
+      {
+        "id": "column:patients.email",
+        "label": "email : VARCHAR(100)",
+        "type": "column"
+      },
+      {
+        "id": "column:patients.address",
+        "label": "address : VARCHAR(255)",
+        "type": "column"
+      },
+      {
+        "id": "column:patients.allergies",
+        "label": "allergies : TEXT",
+        "type": "column"
+      },
+      {
+        "id": "column:patients.notes",
+        "label": "notes : TEXT",
+        "type": "column"
+      },
+      {
+        "id": "table:appointments",
+        "label": "appointments",
+        "type": "table"
+      },
+      {
+        "id": "column:appointments.appointment_id",
+        "label": "appointment_id : INTEGER PRIMARY KEY AUTOINCREMENT",
+        "type": "column"
+      },
+      {
+        "id": "column:appointments.clinic_id",
+        "label": "clinic_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:appointments.patient_id",
+        "label": "patient_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:appointments.doctor_id",
+        "label": "doctor_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:appointments.scheduled_time",
+        "label": "scheduled_time : DATETIME",
+        "type": "column"
+      },
+      {
+        "id": "column:appointments.status",
+        "label": "status : VARCHAR(50)",
+        "type": "column"
+      },
+      {
+        "id": "column:appointments.queue_token",
+        "label": "queue_token : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:appointments.is_online",
+        "label": "is_online : BOOLEAN",
+        "type": "column"
+      },
+      {
+        "id": "column:appointments.created_at",
+        "label": "created_at : DATETIME",
+        "type": "column"
+      },
+      {
+        "id": "table:visit_notes",
+        "label": "visit_notes",
+        "type": "table"
+      },
+      {
+        "id": "column:visit_notes.note_id",
+        "label": "note_id : INTEGER PRIMARY KEY AUTOINCREMENT",
+        "type": "column"
+      },
+      {
+        "id": "column:visit_notes.appointment_id",
+        "label": "appointment_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:visit_notes.doctor_id",
+        "label": "doctor_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:visit_notes.patient_id",
+        "label": "patient_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:visit_notes.visit_date",
+        "label": "visit_date : DATE",
+        "type": "column"
+      },
+      {
+        "id": "column:visit_notes.notes",
+        "label": "notes : TEXT",
+        "type": "column"
+      },
+      {
+        "id": "column:visit_notes.vitals",
+        "label": "vitals : TEXT",
+        "type": "column"
+      },
+      {
+        "id": "column:visit_notes.lab_reports",
+        "label": "lab_reports : TEXT",
+        "type": "column"
+      },
+      {
+        "id": "table:prescriptions",
+        "label": "prescriptions",
+        "type": "table"
+      },
+      {
+        "id": "column:prescriptions.prescription_id",
+        "label": "prescription_id : INTEGER PRIMARY KEY AUTOINCREMENT",
+        "type": "column"
+      },
+      {
+        "id": "column:prescriptions.appointment_id",
+        "label": "appointment_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:prescriptions.doctor_id",
+        "label": "doctor_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:prescriptions.patient_id",
+        "label": "patient_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:prescriptions.date_issued",
+        "label": "date_issued : DATE",
+        "type": "column"
+      },
+      {
+        "id": "column:prescriptions.content",
+        "label": "content : TEXT",
+        "type": "column"
+      },
+      {
+        "id": "column:prescriptions.language",
+        "label": "language : VARCHAR(50)",
+        "type": "column"
+      },
+      {
+        "id": "column:prescriptions.shared_via",
+        "label": "shared_via : VARCHAR(50)",
+        "type": "column"
+      },
+      {
+        "id": "table:bills",
+        "label": "bills",
+        "type": "table"
+      },
+      {
+        "id": "column:bills.bill_id",
+        "label": "bill_id : INTEGER PRIMARY KEY AUTOINCREMENT",
+        "type": "column"
+      },
+      {
+        "id": "column:bills.appointment_id",
+        "label": "appointment_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:bills.patient_id",
+        "label": "patient_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:bills.clinic_id",
+        "label": "clinic_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:bills.amount",
+        "label": "amount : DECIMAL(10,2)",
+        "type": "column"
+      },
+      {
+        "id": "column:bills.discount",
+        "label": "discount : DECIMAL(10,2)",
+        "type": "column"
+      },
+      {
+        "id": "column:bills.payment_method",
+        "label": "payment_method : VARCHAR(50)",
+        "type": "column"
+      },
+      {
+        "id": "column:bills.status",
+        "label": "status : VARCHAR(50)",
+        "type": "column"
+      },
+      {
+        "id": "column:bills.created_at",
+        "label": "created_at : DATETIME",
+        "type": "column"
+      },
+      {
+        "id": "table:payments",
+        "label": "payments",
+        "type": "table"
+      },
+      {
+        "id": "column:payments.payment_id",
+        "label": "payment_id : INTEGER PRIMARY KEY AUTOINCREMENT",
+        "type": "column"
+      },
+      {
+        "id": "column:payments.bill_id",
+        "label": "bill_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:payments.amount_paid",
+        "label": "amount_paid : DECIMAL(10,2)",
+        "type": "column"
+      },
+      {
+        "id": "column:payments.payment_date",
+        "label": "payment_date : DATETIME",
+        "type": "column"
+      },
+      {
+        "id": "column:payments.payment_mode",
+        "label": "payment_mode : VARCHAR(50)",
+        "type": "column"
+      },
+      {
+        "id": "column:payments.transaction_id",
+        "label": "transaction_id : VARCHAR(100)",
+        "type": "column"
+      },
+      {
+        "id": "table:reminders",
+        "label": "reminders",
+        "type": "table"
+      },
+      {
+        "id": "column:reminders.reminder_id",
+        "label": "reminder_id : INTEGER PRIMARY KEY AUTOINCREMENT",
+        "type": "column"
+      },
+      {
+        "id": "column:reminders.patient_id",
+        "label": "patient_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:reminders.appointment_id",
+        "label": "appointment_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:reminders.type",
+        "label": "type : VARCHAR(50)",
+        "type": "column"
+      },
+      {
+        "id": "column:reminders.message",
+        "label": "message : TEXT",
+        "type": "column"
+      },
+      {
+        "id": "column:reminders.scheduled_time",
+        "label": "scheduled_time : DATETIME",
+        "type": "column"
+      },
+      {
+        "id": "column:reminders.sent_via",
+        "label": "sent_via : VARCHAR(50)",
+        "type": "column"
+      },
+      {
+        "id": "column:reminders.status",
+        "label": "status : VARCHAR(50)",
+        "type": "column"
+      },
+      {
+        "id": "table:feedback",
+        "label": "feedback",
+        "type": "table"
+      },
+      {
+        "id": "column:feedback.feedback_id",
+        "label": "feedback_id : INTEGER PRIMARY KEY AUTOINCREMENT",
+        "type": "column"
+      },
+      {
+        "id": "column:feedback.patient_id",
+        "label": "patient_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:feedback.appointment_id",
+        "label": "appointment_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:feedback.doctor_id",
+        "label": "doctor_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:feedback.rating",
+        "label": "rating : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:feedback.comments",
+        "label": "comments : TEXT",
+        "type": "column"
+      },
+      {
+        "id": "column:feedback.created_at",
+        "label": "created_at : DATETIME",
+        "type": "column"
+      },
+      {
+        "id": "table:reports",
+        "label": "reports",
+        "type": "table"
+      },
+      {
+        "id": "column:reports.report_id",
+        "label": "report_id : INTEGER PRIMARY KEY AUTOINCREMENT",
+        "type": "column"
+      },
+      {
+        "id": "column:reports.clinic_id",
+        "label": "clinic_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:reports.type",
+        "label": "type : VARCHAR(50)",
+        "type": "column"
+      },
+      {
+        "id": "column:reports.period_start",
+        "label": "period_start : DATE",
+        "type": "column"
+      },
+      {
+        "id": "column:reports.period_end",
+        "label": "period_end : DATE",
+        "type": "column"
+      },
+      {
+        "id": "column:reports.data",
+        "label": "data : TEXT",
+        "type": "column"
+      },
+      {
+        "id": "column:reports.generated_at",
+        "label": "generated_at : DATETIME",
+        "type": "column"
+      },
+      {
+        "id": "table:teleconsultations",
+        "label": "teleconsultations",
+        "type": "table"
+      },
+      {
+        "id": "column:teleconsultations.teleconsultation_id",
+        "label": "teleconsultation_id : INTEGER PRIMARY KEY AUTOINCREMENT",
+        "type": "column"
+      },
+      {
+        "id": "column:teleconsultations.appointment_id",
+        "label": "appointment_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:teleconsultations.doctor_id",
+        "label": "doctor_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:teleconsultations.patient_id",
+        "label": "patient_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:teleconsultations.video_link",
+        "label": "video_link : VARCHAR(255)",
+        "type": "column"
+      },
+      {
+        "id": "column:teleconsultations.status",
+        "label": "status : VARCHAR(50)",
+        "type": "column"
+      },
+      {
+        "id": "column:teleconsultations.started_at",
+        "label": "started_at : DATETIME",
+        "type": "column"
+      },
+      {
+        "id": "column:teleconsultations.ended_at",
+        "label": "ended_at : DATETIME",
+        "type": "column"
+      },
+      {
+        "id": "table:ai_features",
+        "label": "ai_features",
+        "type": "table"
+      },
+      {
+        "id": "column:ai_features.ai_feature_id",
+        "label": "ai_feature_id : INTEGER PRIMARY KEY AUTOINCREMENT",
+        "type": "column"
+      },
+      {
+        "id": "column:ai_features.appointment_id",
+        "label": "appointment_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:ai_features.feature_type",
+        "label": "feature_type : VARCHAR(50)",
+        "type": "column"
+      },
+      {
+        "id": "column:ai_features.result",
+        "label": "result : TEXT",
+        "type": "column"
+      },
+      {
+        "id": "column:ai_features.created_at",
+        "label": "created_at : DATETIME",
+        "type": "column"
+      },
+      {
+        "id": "table:subscriptions",
+        "label": "subscriptions",
+        "type": "table"
+      },
+      {
+        "id": "column:subscriptions.subscription_id",
+        "label": "subscription_id : INTEGER PRIMARY KEY AUTOINCREMENT",
+        "type": "column"
+      },
+      {
+        "id": "column:subscriptions.clinic_id",
+        "label": "clinic_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:subscriptions.plan",
+        "label": "plan : VARCHAR(50)",
+        "type": "column"
+      },
+      {
+        "id": "column:subscriptions.start_date",
+        "label": "start_date : DATE",
+        "type": "column"
+      },
+      {
+        "id": "column:subscriptions.end_date",
+        "label": "end_date : DATE",
+        "type": "column"
+      },
+      {
+        "id": "column:subscriptions.status",
+        "label": "status : VARCHAR(50)",
+        "type": "column"
+      },
+      {
+        "id": "table:pharmacy_integration",
+        "label": "pharmacy_integration",
+        "type": "table"
+      },
+      {
+        "id": "column:pharmacy_integration.integration_id",
+        "label": "integration_id : INTEGER PRIMARY KEY AUTOINCREMENT",
+        "type": "column"
+      },
+      {
+        "id": "column:pharmacy_integration.clinic_id",
+        "label": "clinic_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:pharmacy_integration.pharmacy_name",
+        "label": "pharmacy_name : VARCHAR(100)",
+        "type": "column"
+      },
+      {
+        "id": "column:pharmacy_integration.api_key",
+        "label": "api_key : VARCHAR(255)",
+        "type": "column"
+      },
+      {
+        "id": "column:pharmacy_integration.status",
+        "label": "status : VARCHAR(50)",
+        "type": "column"
+      },
+      {
+        "id": "table:lab_integration",
+        "label": "lab_integration",
+        "type": "table"
+      },
+      {
+        "id": "column:lab_integration.integration_id",
+        "label": "integration_id : INTEGER PRIMARY KEY AUTOINCREMENT",
+        "type": "column"
+      },
+      {
+        "id": "column:lab_integration.clinic_id",
+        "label": "clinic_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:lab_integration.lab_name",
+        "label": "lab_name : VARCHAR(100)",
+        "type": "column"
+      },
+      {
+        "id": "column:lab_integration.api_key",
+        "label": "api_key : VARCHAR(255)",
+        "type": "column"
+      },
+      {
+        "id": "column:lab_integration.status",
+        "label": "status : VARCHAR(50)",
+        "type": "column"
+      },
+      {
+        "id": "table:ads",
+        "label": "ads",
+        "type": "table"
+      },
+      {
+        "id": "column:ads.ad_id",
+        "label": "ad_id : INTEGER PRIMARY KEY AUTOINCREMENT",
+        "type": "column"
+      },
+      {
+        "id": "column:ads.clinic_id",
+        "label": "clinic_id : INTEGER",
+        "type": "column"
+      },
+      {
+        "id": "column:ads.sponsor",
+        "label": "sponsor : VARCHAR(100)",
+        "type": "column"
+      },
+      {
+        "id": "column:ads.banner_url",
+        "label": "banner_url : VARCHAR(255)",
+        "type": "column"
+      },
+      {
+        "id": "column:ads.start_date",
+        "label": "start_date : DATE",
+        "type": "column"
+      },
+      {
+        "id": "column:ads.end_date",
+        "label": "end_date : DATE",
+        "type": "column"
+      },
+      {
+        "id": "column:ads.status",
+        "label": "status : VARCHAR(50)",
+        "type": "column"
+      }
+    ],
+    "edges": [
+      {
+        "from": "table:clinics",
+        "to": "column:clinics.clinic_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:clinics",
+        "to": "column:clinics.name",
+        "label": "has-column"
+      },
+      {
+        "from": "table:clinics",
+        "to": "column:clinics.address",
+        "label": "has-column"
+      },
+      {
+        "from": "table:clinics",
+        "to": "column:clinics.phone",
+        "label": "has-column"
+      },
+      {
+        "from": "table:clinics",
+        "to": "column:clinics.email",
+        "label": "has-column"
+      },
+      {
+        "from": "table:clinics",
+        "to": "column:clinics.owner_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:users",
+        "to": "column:users.user_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:users",
+        "to": "column:users.clinic_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:users",
+        "to": "column:users.role",
+        "label": "has-column"
+      },
+      {
+        "from": "table:users",
+        "to": "column:users.name",
+        "label": "has-column"
+      },
+      {
+        "from": "table:users",
+        "to": "column:users.email",
+        "label": "has-column"
+      },
+      {
+        "from": "table:users",
+        "to": "column:users.phone",
+        "label": "has-column"
+      },
+      {
+        "from": "table:users",
+        "to": "column:users.password_hash",
+        "label": "has-column"
+      },
+      {
+        "from": "table:users",
+        "to": "column:users.is_active",
+        "label": "has-column"
+      },
+      {
+        "from": "table:patients",
+        "to": "column:patients.patient_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:patients",
+        "to": "column:patients.clinic_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:patients",
+        "to": "column:patients.name",
+        "label": "has-column"
+      },
+      {
+        "from": "table:patients",
+        "to": "column:patients.dob",
+        "label": "has-column"
+      },
+      {
+        "from": "table:patients",
+        "to": "column:patients.gender",
+        "label": "has-column"
+      },
+      {
+        "from": "table:patients",
+        "to": "column:patients.phone",
+        "label": "has-column"
+      },
+      {
+        "from": "table:patients",
+        "to": "column:patients.email",
+        "label": "has-column"
+      },
+      {
+        "from": "table:patients",
+        "to": "column:patients.address",
+        "label": "has-column"
+      },
+      {
+        "from": "table:patients",
+        "to": "column:patients.allergies",
+        "label": "has-column"
+      },
+      {
+        "from": "table:patients",
+        "to": "column:patients.notes",
+        "label": "has-column"
+      },
+      {
+        "from": "table:appointments",
+        "to": "column:appointments.appointment_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:appointments",
+        "to": "column:appointments.clinic_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:appointments",
+        "to": "column:appointments.patient_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:appointments",
+        "to": "column:appointments.doctor_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:appointments",
+        "to": "column:appointments.scheduled_time",
+        "label": "has-column"
+      },
+      {
+        "from": "table:appointments",
+        "to": "column:appointments.status",
+        "label": "has-column"
+      },
+      {
+        "from": "table:appointments",
+        "to": "column:appointments.queue_token",
+        "label": "has-column"
+      },
+      {
+        "from": "table:appointments",
+        "to": "column:appointments.is_online",
+        "label": "has-column"
+      },
+      {
+        "from": "table:appointments",
+        "to": "column:appointments.created_at",
+        "label": "has-column"
+      },
+      {
+        "from": "table:visit_notes",
+        "to": "column:visit_notes.note_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:visit_notes",
+        "to": "column:visit_notes.appointment_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:visit_notes",
+        "to": "column:visit_notes.doctor_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:visit_notes",
+        "to": "column:visit_notes.patient_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:visit_notes",
+        "to": "column:visit_notes.visit_date",
+        "label": "has-column"
+      },
+      {
+        "from": "table:visit_notes",
+        "to": "column:visit_notes.notes",
+        "label": "has-column"
+      },
+      {
+        "from": "table:visit_notes",
+        "to": "column:visit_notes.vitals",
+        "label": "has-column"
+      },
+      {
+        "from": "table:visit_notes",
+        "to": "column:visit_notes.lab_reports",
+        "label": "has-column"
+      },
+      {
+        "from": "table:prescriptions",
+        "to": "column:prescriptions.prescription_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:prescriptions",
+        "to": "column:prescriptions.appointment_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:prescriptions",
+        "to": "column:prescriptions.doctor_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:prescriptions",
+        "to": "column:prescriptions.patient_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:prescriptions",
+        "to": "column:prescriptions.date_issued",
+        "label": "has-column"
+      },
+      {
+        "from": "table:prescriptions",
+        "to": "column:prescriptions.content",
+        "label": "has-column"
+      },
+      {
+        "from": "table:prescriptions",
+        "to": "column:prescriptions.language",
+        "label": "has-column"
+      },
+      {
+        "from": "table:prescriptions",
+        "to": "column:prescriptions.shared_via",
+        "label": "has-column"
+      },
+      {
+        "from": "table:bills",
+        "to": "column:bills.bill_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:bills",
+        "to": "column:bills.appointment_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:bills",
+        "to": "column:bills.patient_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:bills",
+        "to": "column:bills.clinic_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:bills",
+        "to": "column:bills.amount",
+        "label": "has-column"
+      },
+      {
+        "from": "table:bills",
+        "to": "column:bills.discount",
+        "label": "has-column"
+      },
+      {
+        "from": "table:bills",
+        "to": "column:bills.payment_method",
+        "label": "has-column"
+      },
+      {
+        "from": "table:bills",
+        "to": "column:bills.status",
+        "label": "has-column"
+      },
+      {
+        "from": "table:bills",
+        "to": "column:bills.created_at",
+        "label": "has-column"
+      },
+      {
+        "from": "table:payments",
+        "to": "column:payments.payment_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:payments",
+        "to": "column:payments.bill_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:payments",
+        "to": "column:payments.amount_paid",
+        "label": "has-column"
+      },
+      {
+        "from": "table:payments",
+        "to": "column:payments.payment_date",
+        "label": "has-column"
+      },
+      {
+        "from": "table:payments",
+        "to": "column:payments.payment_mode",
+        "label": "has-column"
+      },
+      {
+        "from": "table:payments",
+        "to": "column:payments.transaction_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:reminders",
+        "to": "column:reminders.reminder_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:reminders",
+        "to": "column:reminders.patient_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:reminders",
+        "to": "column:reminders.appointment_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:reminders",
+        "to": "column:reminders.type",
+        "label": "has-column"
+      },
+      {
+        "from": "table:reminders",
+        "to": "column:reminders.message",
+        "label": "has-column"
+      },
+      {
+        "from": "table:reminders",
+        "to": "column:reminders.scheduled_time",
+        "label": "has-column"
+      },
+      {
+        "from": "table:reminders",
+        "to": "column:reminders.sent_via",
+        "label": "has-column"
+      },
+      {
+        "from": "table:reminders",
+        "to": "column:reminders.status",
+        "label": "has-column"
+      },
+      {
+        "from": "table:feedback",
+        "to": "column:feedback.feedback_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:feedback",
+        "to": "column:feedback.patient_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:feedback",
+        "to": "column:feedback.appointment_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:feedback",
+        "to": "column:feedback.doctor_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:feedback",
+        "to": "column:feedback.rating",
+        "label": "has-column"
+      },
+      {
+        "from": "table:feedback",
+        "to": "column:feedback.comments",
+        "label": "has-column"
+      },
+      {
+        "from": "table:feedback",
+        "to": "column:feedback.created_at",
+        "label": "has-column"
+      },
+      {
+        "from": "table:reports",
+        "to": "column:reports.report_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:reports",
+        "to": "column:reports.clinic_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:reports",
+        "to": "column:reports.type",
+        "label": "has-column"
+      },
+      {
+        "from": "table:reports",
+        "to": "column:reports.period_start",
+        "label": "has-column"
+      },
+      {
+        "from": "table:reports",
+        "to": "column:reports.period_end",
+        "label": "has-column"
+      },
+      {
+        "from": "table:reports",
+        "to": "column:reports.data",
+        "label": "has-column"
+      },
+      {
+        "from": "table:reports",
+        "to": "column:reports.generated_at",
+        "label": "has-column"
+      },
+      {
+        "from": "table:teleconsultations",
+        "to": "column:teleconsultations.teleconsultation_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:teleconsultations",
+        "to": "column:teleconsultations.appointment_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:teleconsultations",
+        "to": "column:teleconsultations.doctor_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:teleconsultations",
+        "to": "column:teleconsultations.patient_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:teleconsultations",
+        "to": "column:teleconsultations.video_link",
+        "label": "has-column"
+      },
+      {
+        "from": "table:teleconsultations",
+        "to": "column:teleconsultations.status",
+        "label": "has-column"
+      },
+      {
+        "from": "table:teleconsultations",
+        "to": "column:teleconsultations.started_at",
+        "label": "has-column"
+      },
+      {
+        "from": "table:teleconsultations",
+        "to": "column:teleconsultations.ended_at",
+        "label": "has-column"
+      },
+      {
+        "from": "table:ai_features",
+        "to": "column:ai_features.ai_feature_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:ai_features",
+        "to": "column:ai_features.appointment_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:ai_features",
+        "to": "column:ai_features.feature_type",
+        "label": "has-column"
+      },
+      {
+        "from": "table:ai_features",
+        "to": "column:ai_features.result",
+        "label": "has-column"
+      },
+      {
+        "from": "table:ai_features",
+        "to": "column:ai_features.created_at",
+        "label": "has-column"
+      },
+      {
+        "from": "table:subscriptions",
+        "to": "column:subscriptions.subscription_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:subscriptions",
+        "to": "column:subscriptions.clinic_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:subscriptions",
+        "to": "column:subscriptions.plan",
+        "label": "has-column"
+      },
+      {
+        "from": "table:subscriptions",
+        "to": "column:subscriptions.start_date",
+        "label": "has-column"
+      },
+      {
+        "from": "table:subscriptions",
+        "to": "column:subscriptions.end_date",
+        "label": "has-column"
+      },
+      {
+        "from": "table:subscriptions",
+        "to": "column:subscriptions.status",
+        "label": "has-column"
+      },
+      {
+        "from": "table:pharmacy_integration",
+        "to": "column:pharmacy_integration.integration_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:pharmacy_integration",
+        "to": "column:pharmacy_integration.clinic_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:pharmacy_integration",
+        "to": "column:pharmacy_integration.pharmacy_name",
+        "label": "has-column"
+      },
+      {
+        "from": "table:pharmacy_integration",
+        "to": "column:pharmacy_integration.api_key",
+        "label": "has-column"
+      },
+      {
+        "from": "table:pharmacy_integration",
+        "to": "column:pharmacy_integration.status",
+        "label": "has-column"
+      },
+      {
+        "from": "table:lab_integration",
+        "to": "column:lab_integration.integration_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:lab_integration",
+        "to": "column:lab_integration.clinic_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:lab_integration",
+        "to": "column:lab_integration.lab_name",
+        "label": "has-column"
+      },
+      {
+        "from": "table:lab_integration",
+        "to": "column:lab_integration.api_key",
+        "label": "has-column"
+      },
+      {
+        "from": "table:lab_integration",
+        "to": "column:lab_integration.status",
+        "label": "has-column"
+      },
+      {
+        "from": "table:ads",
+        "to": "column:ads.ad_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:ads",
+        "to": "column:ads.clinic_id",
+        "label": "has-column"
+      },
+      {
+        "from": "table:ads",
+        "to": "column:ads.sponsor",
+        "label": "has-column"
+      },
+      {
+        "from": "table:ads",
+        "to": "column:ads.banner_url",
+        "label": "has-column"
+      },
+      {
+        "from": "table:ads",
+        "to": "column:ads.start_date",
+        "label": "has-column"
+      },
+      {
+        "from": "table:ads",
+        "to": "column:ads.end_date",
+        "label": "has-column"
+      },
+      {
+        "from": "table:ads",
+        "to": "column:ads.status",
+        "label": "has-column"
+      }
+    ]
+  }
+}
